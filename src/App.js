@@ -10,9 +10,14 @@ import {
   ComboboxOption,
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
-import useOnclickOutside from "react-cool-onclickoutside";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import SearchIcon from "@material-ui/icons/Search";
+import sun from "./images/sun.jpg"
+import rain from "./images/rain.jpg"
+import clouds from "./images/clouds.jpg"
+import storm from "./images/storm.jpg"
+import snow from "./images/snow.jpg"
+
 
 require("dotenv").config();
 
@@ -28,12 +33,11 @@ function App() {
     ready,
     value,
     suggestions: { status, data },
-    setValue,
-    clearSuggestions,
+    setValue
   } = usePlacesAutocomplete({
     requestOptions: {
       /* Define search scope here */
-      types: ["(cities)"],
+      types: ['(cities)']
     },
     debounce: 300,
   });
@@ -79,16 +83,12 @@ function App() {
 
     setValue("");
   };
-
+  //console.log(weather);
   const handleInput = (e) => {
     // Update the keyword of the input element
     setValue(e.target.value);
   };
-  const ref = useOnclickOutside(() => {
-    // When user clicks outside of the component, we can dismiss
-    // the searched suggestions by calling this method
-    clearSuggestions();
-  });
+
 
   const handleSelect = (val) => {
     setValue(val, false);
@@ -107,7 +107,7 @@ function App() {
         //console.log(data[i]);
       }
     }
-    //console.log("data: ", cities);
+    //console.log("data: ", data);
     const suggestions = cities.map(({ key, city, country }) => (
       <ComboboxOption key={key} value={city + ", " + country} />
     ));
@@ -117,9 +117,9 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundImage: weather === "clear sky" ? `url(${sun})` : weather === "few clouds" || weather === "scattered clouds" || weather === "broken clouds" ? `url(${clouds})` : weather === "rain" || weather === "shower rain" ? `url(${rain})` : weather === "thunderstorm" ? `url(${storm})` : weather === "snow" ? `url(${snow})` : console.log("mist") }}>
       <div className="wrapper">
-        <div className="container" ref={ref}>
+        <div className="container" >
           <Combobox onSelect={handleSelect} aria-labelledby="demo">
             <ComboboxInput
               className="input"
@@ -128,9 +128,10 @@ function App() {
               value={value}
               onChange={handleInput}
               disabled={!ready}
+              placeholder="Type in city name"
             />
             <ComboboxPopover>
-              <ComboboxList>
+              <ComboboxList >
                 {status === "OK" && renderSuggestions()}
               </ComboboxList>
             </ComboboxPopover>
@@ -158,6 +159,7 @@ function App() {
           <p className="location-text">{location}</p>
         </div>
       </div>
+
     </div>
   );
 }

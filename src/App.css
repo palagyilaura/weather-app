@@ -5,7 +5,8 @@
 }
 .App {
   height: 100vh;
-  background: url("./images/rain.jpg");
+  background: grey;
+  transition: 0.5s ease-in-out;
   position: relative;
   background-size: cover;
   font-family: "Archivo", sans-serif;
@@ -15,7 +16,7 @@
   margin: 0 auto;
   padding: 50px;
   height: 100vh;
-  background-color: #ffffff9e;
+  background-color: #ffffffa8;
   color: #000;
   mix-blend-mode: screen;
   backdrop-filter: blur(1px);
@@ -70,6 +71,9 @@
   justify-content: center;
   align-items: center;
 }
+.weather-box img {
+  font-size: 11px;
+}
 .weather-text {
   color: #000;
   font-size: 20px;
@@ -89,9 +93,9 @@
   color: #000;
 }
 
-.input:focus {
+/*.input:focus {
   border: 2px solid green;
-}
+}*/
 button:focus {
   border: none;
 }
@@ -99,4 +103,35 @@ button:focus {
 *:focus,
 *:hover {
   outline: none;
+}
+[data-reach-combobox-list] {
+  background: rgba(206, 206, 206, 0.226);
+  outline: none;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+[data-reach-combobox-option] {
+  padding: 10px 15px;
+  border-bottom: 1px solid white;
+}
+
+[data-reach-combobox-option]:nth-child(5) {
+  border-bottom: none;
+}
+
+[data-reach-combobox-popover] {
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  margin-top: 5px;
+  background-color: rgba(255, 255, 255, 0.185);
+}
+
+[data-user-value] {
+  font-weight: 500;
+}
+
+[data-suggested-value] {
+  font-weight: 500;
 }
