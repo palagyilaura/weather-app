@@ -177,9 +177,9 @@ button:focus {
 .fact-box {
   padding-top: 20px;
 }
-.fact-box div::first-letter {
+/*.fact-box div::first-letter {
   color: orange;
-}
+}*/
 
 @media only screen and (max-width: 768px) {
   .forecast {
@@ -197,6 +197,7 @@ button:focus {
   }
   .content {
     font-size: 15px;
+    text-align: center;
   }
   .temperature {
     display: flex;
@@ -206,7 +207,7 @@ button:focus {
     width: 90%;
   }
 }
-@media only screen and (max-width: 990px) {
+@media only screen and (min-width: 769px) {
   .facts,
   .weather,
   .forecast {
