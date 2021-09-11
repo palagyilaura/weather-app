@@ -4,8 +4,8 @@
   margin: 0;
 }
 .App {
-  height: 100vh;
-  background: grey;
+  min-height: 100vh;
+  background: url("./images/default.jpg");
   transition: 0.5s ease-in-out;
   position: relative;
   background-size: cover;
@@ -14,12 +14,8 @@
 .wrapper {
   width: 100%;
   margin: 0 auto;
-  padding: 50px;
-  height: 100vh;
-  background-color: #ffffffa8;
-  color: #000;
-  mix-blend-mode: screen;
-  backdrop-filter: blur(1px);
+  padding: 50px 0;
+  height: 100%;
 }
 
 .container {
@@ -34,6 +30,10 @@
   border-radius: 30px;
   border: 2px solid #f3f3f3;
   background-color: #fff6;
+  color: white;
+}
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.808);
 }
 
 .submit {
@@ -50,38 +50,52 @@
 .temperature {
   font-family: "Archivo", sans-serif;
   display: flex;
-  align-items: center;
-  font-size: 130px;
+  align-items: baseline;
+
   /* position: absolute; */
   flex-direction: column;
   justify-content: center;
 }
 .temp-text {
   text-align: center;
+  font-size: 130px;
 }
 .weather {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: space-between;
+  background-color: #ffffffa8;
+  color: #000;
+  mix-blend-mode: screen;
+  border-radius: 10px;
+  width: 60%; /*600px*/
+  margin: 0 auto;
+  padding: 20px;
 }
 .weather-box {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  /*justify-content: center;
+  align-items: center;*/
+}
+.weather-description {
+  display: flex;
   align-items: center;
+  padding-bottom: 20px;
 }
 .weather-box img {
   font-size: 11px;
+  width: 30%;
 }
 .weather-text {
   color: #000;
-  font-size: 20px;
+  font-size: 22px;
 }
 .content {
-  font-size: 70px;
+  font-size: 35px;
   font-weight: 500;
-  padding-bottom: 15px;
+  /*padding-bottom: 15px;*/
 }
 .location {
   display: flex;
@@ -93,9 +107,6 @@
   color: #000;
 }
 
-/*.input:focus {
-  border: 2px solid green;
-}*/
 button:focus {
   border: none;
 }
@@ -134,4 +145,87 @@ button:focus {
 
 [data-suggested-value] {
   font-weight: 500;
+}
+
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 15px;
+  width: 60%;
+  margin: 30px auto 30px auto;
+}
+.forecast-card {
+  background: #ffffffa8;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+}
+.forecast-weather {
+  text-align: center;
+}
+.forecast-weather p {
+  font-size: 10px;
+}
+
+.facts {
+  background: white;
+  /*margin-top: 20px;*/
+  padding: 20px;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.fact-box {
+  padding-top: 20px;
+}
+.fact-box div::first-letter,
+.fact-box div::nth-letter(2) {
+  color: orange;
+}
+
+@media only screen and (max-width: 768px) {
+  .forecast {
+    /*display: flex;
+    flex-direction: column;*/
+    width: 90%;
+    overflow-x: scroll;
+    /*width: 90%;*/
+  }
+  .forecast-card {
+    width: 140px;
+  }
+  .weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+  .content {
+    font-size: 15px;
+  }
+  .temperature {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .facts {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 990px) {
+  .facts,
+  .weather,
+  .forecast {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .facts,
+  .weather,
+  .forecast {
+    width: 650px;
+  }
 }
