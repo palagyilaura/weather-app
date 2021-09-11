@@ -51,8 +51,6 @@
   font-family: "Archivo", sans-serif;
   display: flex;
   align-items: baseline;
-
-  /* position: absolute; */
   flex-direction: column;
   justify-content: center;
 }
@@ -76,8 +74,6 @@
 .weather-box {
   display: flex;
   flex-direction: column;
-  /*justify-content: center;
-  align-items: center;*/
 }
 .weather-description {
   display: flex;
@@ -95,7 +91,6 @@
 .content {
   font-size: 35px;
   font-weight: 500;
-  /*padding-bottom: 15px;*/
 }
 .location {
   display: flex;
@@ -173,7 +168,7 @@ button:focus {
 
 .facts {
   background: white;
-  /*margin-top: 20px;*/
+
   padding: 20px;
   width: 60%;
   margin: 0 auto;
@@ -182,18 +177,14 @@ button:focus {
 .fact-box {
   padding-top: 20px;
 }
-.fact-box div::first-letter,
-.fact-box div::nth-letter(2) {
+.fact-box div::first-letter {
   color: orange;
 }
 
 @media only screen and (max-width: 768px) {
   .forecast {
-    /*display: flex;
-    flex-direction: column;*/
     width: 90%;
     overflow-x: scroll;
-    /*width: 90%;*/
   }
   .forecast-card {
     width: 140px;
